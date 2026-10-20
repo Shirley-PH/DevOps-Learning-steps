@@ -145,6 +145,94 @@ You can also sort by the newest changes using `-t`, or reverse the order using `
 ls -lt /directory
 ls -ltr /directory
 ``` 
+- **Head** *Display the first 10 lines by default. Also you can search a keyword inside of the file by using `/`*
+```bash
+#For example:
+head fileName
+#Output: 
+...
+``` 
+
+Note: In case, you want only read the first 5 lines, you online need to specify after the word  `head`
+```bash
+#For example:
+head -5 fileName
+#Output:
+...
+...
+...
+...
+... 
+``` 
+
+In the opposite side,
+- **Tail**: *Display the last 10 lines by default. Also, you can specify how many line you want display*
+```bash
+#For example:
+tail -5 fileName
+#Output: 
+...
+...
+...
+...
+...
+``` 
+- **Tail -f**: *Read ans show dynamicly the changes in real time*
+
+Note: this is very usuful for monitoring logs
+
+```bash
+#For example:
+tail -f fileName
+#Output: 
+...
+...
+...
+...
+...
+``` 
+
+## GREP 
+### Linux grep Syntax ###
+This structure teaches how to write commands properly. Undeerstanding this will helps you use them correctly and avoid common error.
+> #### GREP [OPTIONS] PATTER [FILE…] 
+
+- **Grep -i** *The `-i` option performs a case-insensitive search. This means that uppercase and lowercase letters are treated as equivalent.*
+
+```bash
+#For example: Search for "firewall" regarless of capitalization
+grep -i firewall fileDirection
+#Output: 
+Firewall configuration
+firewall --desable
+``` 
+- **Grep -R** *The `-R` option searches recursively through a directory, including files in its subdirectories.*
+
+Note: `/*` The asqueristic allow us to search throught all files that contains the route.
+Note: Recursive searching is useful when you need to find a keyword across multiple files and directories.
+
+```bash
+#For example: Search recursively for "SELINUX" in /etc
+grep -R SELENUX /etc/*
+#Output: 
+/etc/selinux/config:# SELINUX= can take one of these three values:
+/etc/selinux/config:# NOTE: In earlier Fedora kernel builds, SELINUX=disabled would also
+/etc/selinux/config:SELINUX=permissive
+/etc/selinux/config:# SELINUXTYPE= can take one of these three values:
+/etc/selinux/config:
+...
+``` 
+- **Grep -vi** *Display lines that do not contain the specified keyword, regardless of capitalization.*
+```bash
+#For example: Display lines that do not contain "firewall"
+grep -vi firewall fileDirectory*
+#Output: 
+System configuration
+Network settings
+Service status
+...
+``` 
+
 ## VIM EDITOR
 ### Commands for this editor ###
 When you are inside a file, if you want to apply any command from this list, you must press the **ESC** key to enter Command Mode and then type the instruction.
@@ -162,6 +250,7 @@ You can also combine commands together:
 #Output: save and close the file
 ``` 
 **During edition of the file**
+
 *Note: Make sure you are in Command Mode (press ESC) to use these.*
 
 - ``o`` Insert a new line below the current line and enter Insert Mode
