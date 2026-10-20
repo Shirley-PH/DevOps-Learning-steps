@@ -191,6 +191,57 @@ tail -f fileName
 ...
 ...
 ``` 
+- **Cut [OPTIONS] [FILE]**: *This command filter specific sections or fiels from each line of file. Your need to follow the proper structure*
+
+Extra information:
+- `-d`: Specify the delimiter, which separates the fields, in this case was `(:)`.
+
+- `-f:` Selects nº of colummn which is the objective. In this case, the first field `(1)`.
+
+- `directionFile`: The file containing relevant information.
+
+```bash
+#For example: Display the usernames registered on the system /etc/passwd
+#This file contains line started like this: john:x1000:1000:John Doe:/home/john:/bin/bash
+cut -d: -f1 /etc/passwd
+#Output: 
+root
+daemon
+bin
+sys
+sync
+games
+...
+``` 
+## SED (Stream editor)
+
+The sed command is a text-processing tool used to search, replace, delete, or modify text in a file or command output.
+
+- **Sed -i** *Replaces every occurrence of oldWord with newWord and prints the result to the terminal without modifying the original file*
+
+Note:  `Sed` will show you how would looks like the result and `-i` make the really change*
+```bash
+#For example: 
+#There is a file called "testing.txt" with the folloing content:
+# "Only I want to add more information with this key word
+# salad, that has a lot  vitamins and fruits, vegetable... salad"
+
+## Replace "salad" with "onion" in the output
+sed  's/salad/onion/g' testing.txt
+#Output: 
+# Output: Only I want to add more information with this key word
+#onion, that has a lot  vitamins and fruits, vegetable...onion
+
+cat testing.txt
+#Output: 
+# Only I want to add more information with this key word
+#salad, that has a lot  vitamins and fruits, vegetable... salad
+
+sed  -i 's/salad/onion/g' testing.txt
+#Output: 
+# Output: Only I want to add more information with this key word
+#onion, that has a lot  vitamins and fruits, vegetable...onion
+``` 
 
 ## GREP 
 ### Linux grep Syntax ###
@@ -242,6 +293,7 @@ When you are inside a file, if you want to apply any command from this list, you
 - **:q!** to quite **without** **saving** the changes to the file
 - **:se nu** Enumering every line of the file
 - **:%d** Remove the entire content of the file
+- **:%s/replaceWord/newWord/g** Searches for replaceWord and replaces it with newWord throughout the entire file..
 
 You can also combine commands together:
 ```bash
@@ -249,6 +301,17 @@ You can also combine commands together:
 :wq
 #Output: save and close the file
 ``` 
+
+Example of replace word:
+
+Note: `g` means all occurrences on each line, while `%`  means all lines in the file. Together, they replace all matches throughout the document
+
+``` bash
+#For example: 
+:%s/firewall/security/g
+#Output: Replaces every occurrence of firewall with security throughout the file.
+```
+
 **During edition of the file**
 
 *Note: Make sure you are in Command Mode (press ESC) to use these.*
