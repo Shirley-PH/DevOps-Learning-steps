@@ -31,16 +31,18 @@ sudo visudo
 
 In this example, I will grant sudo privilage to a user named `devops` as example.
 
-1. Open the sudoers file as root user
+1. **Open the sudoers file as root user**
 
 ```bash
 sudo visudo
 ```
-2. Inside of the file, you need to find the word `root`, you can type `/root` like this.
+2. **Inside of the file, you need to find the word `root`, you can type `/root` like this.**
 
 ![searchRoot](searchRoot.png)
 
-3. Add a new line after `root` information as you can see in the imagen before. NEVER remove the line of the `root`. You can do it pressing the letter `o` if you have a cursor in this line. Then add this user.
+3. **Add a new line after `root` information as you can see in the imagen before.**
+
+NEVER remove the line of the `root`. You can do it pressing the letter `o` if you have a cursor in this line. Then add this user.
 
 **Extra information :magic_wand:** You can copy and paste the same line that it has root user. Pressing letter `yy` for coping and `pp` pasting where your cursor is.
 
@@ -49,17 +51,17 @@ In this example, I added user `devops` like this.
 ![devops-privilage](devops-privilage.png)
 
 
-4.  Save and exit
+4.  **Save and exit**
 Now, if you are using Vim:
 - Press ESC to enter command mode 
 - Type: `:wq` like this. 
-- Press ENTER for save and close
+- Press ENTER for saving and closing
 
 ![save-wq](save-wq.png)
 
 So far, when you log as `devops`the system should asked for the password. 
 
-5. Set or Change the User's Password
+5. **Set or Change the User's Password**
 
 Granting sudo privileges does not create a user or set their password.
 
