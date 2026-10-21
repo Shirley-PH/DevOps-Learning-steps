@@ -96,7 +96,7 @@ After saving and closing,  the screen will show you the `syntax error...`.
 
 ![error-syntaxis](error-syntaxis.png)
 
-To exit this error and return to the file, simply type `e` and press ENTER after the text `what now?`
+To exit this error and return to the file, simply type `e` and press ENTER after the text `what now?`.
 
 ![letter-e](letter-e.png)
 
