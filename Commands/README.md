@@ -190,8 +190,61 @@ tail -f fileName
 ...
 ...
 ...
-``` 
-- **Cut [OPTIONS] [FILE]**: *This command filter specific sections or fiels from each line of file. Your need to follow the proper structure*
+```
+- **> (Arrow)**: *Redirection and overwrite the content*
+```bash
+#For example: This case, you want to redirect uptime to the following file called "sysinfo.txt" and remove all the content what it has already.
+uptime > /tmp/sysinfo.txt
+cat /tmp/sysinfo.txt
+#Output: 
+11:55:36 up 1 day,  2:53,  5 users,  load average: 0.00, 0.00, 0.00
+```
+- **>> (Doble arrow)**: *Write the content without overwrite*
+```bash
+#For example: This case, you want to added the "uptime" to the file called "sysinfo.txt"
+uptime >> /tmp/sysinfo.txt
+cat /tmp/sysinfo.txt
+#Output: 
+anaconda-ks.cfg
+original-ks.cfg
+11:55:36 up 1 day,  2:53,  5 users,  load average: 0.00, 0.00, 0.00
+```
+- **Locate**: *Search the word from all directory*
+
+Nota: This command you need to use "updatedb" because the searching is not in real time. So, you need to refresh the content.
+```bash
+#For example: This case, you want to search all "host"
+updatedb
+locate host
+#Output: 
+/dev/vhost-net
+/dev/vhost-vsock
+/etc/host.conf
+/etc/hostname
+/etc/hosts
+/etc/samba/lmhosts
+...
+```
+## PIPES (|) COMMAND
+
+This is symbol `|` which is placed bettween two other commands. The pipes allow you to send the output of a command to another command (streams).
+
+```bash
+#For example: Yu can use `ls`and `grep` at the same time, This will search READM and listed if it is finded
+ls | grep README
+#Output: 
+
+```
+## CUT COMMAND FOR FILTERING
+
+You can use `cut` in two main ways:
+- **With a input file**: Pass the text file's name as an argument, then cut reads and processes each line
+- **With standard input (stdin)**: Pipe the output of another command directly into cut using `|`
+
+Here is what the general syntax looks like
+> ### CUT [OPTIONS] [VALUE] [FILE]
+
+> ### DATA | CUT [OPTION] [VALUE] 
 
 Extra information:
 - `-d`: Specify the delimiter, which separates the fields, in this case was `(:)`.
@@ -245,6 +298,9 @@ sed  -i 's/salad/onion/g' testing.txt
 
 ## GREP 
 ### Linux grep Syntax ###
+
+Grep is use as searcher or filter by word(s) of list of files
+
 This structure teaches how to write commands properly. Undeerstanding this will helps you use them correctly and avoid common error.
 > #### GREP [OPTIONS] PATTER [FILE…] 
 
