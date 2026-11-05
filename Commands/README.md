@@ -32,9 +32,12 @@ exit
 ```bash
 vagrant halt
 ``` 
-- *Remove the entire virtual machine*
+- *Remove the entire virtual machine* You can destroy being i the file or using ID
 ```bash
-vagrant destroy
+vagrant destroy --force
+``` 
+```bash
+vagrant destroy ID
 ``` 
 ## LINUX BASIC & PROMPTS
 
