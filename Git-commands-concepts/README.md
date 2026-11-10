@@ -155,6 +155,10 @@ Alternatively, you can use:
 ```bash
 git checkout exampleBranch
 ```
+Publish the new branch
+```bash
+git push -u origin exampleBranch
+```
 ## :man_factory_worker:Troubleshooting
 
 1. Remove a remote connection
