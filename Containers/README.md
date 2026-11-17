@@ -322,6 +322,11 @@ docker compose down
 
 This stops and removes the containers created by Docker Compose.
 
+```bash
+docker system prune -a
+```
+This remove all unused containers, networks, images (both dangling and unused), unused build cache, and optionally, volumes.
+
 ### View running services
 
 ```bash
