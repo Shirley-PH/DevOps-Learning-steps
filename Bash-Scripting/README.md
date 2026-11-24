@@ -265,3 +265,96 @@ export SEASON="Sprint"
 Log out and back in, or open a new login shell, to verify that the configuration is applied.
 
 ## 6. User input
+
+Bash can prompt users and store their responses in variables using the `read` command.
+
+- `read NAME` reads input and stores it in a variable named `NAME`.
+- `read -p "Prompt: " NAME` displays a prompt before reading the input.
+- `read -s` hides the user's input, which is useful when entering passwords.
+
+### Example: user input
+
+```bash
+#!/bin/bash
+
+echo "Enter your skill:"
+read SKILL
+
+echo "Your $SKILL skills are in high demand in the IT industry."
+
+read -p "Username: " USR
+read -sp "Password: " PASS
+
+echo
+echo "Login successful. Welcome, $USR."
+```
+
+In this example, `USR` stores the username and `PASS` stores the password. The password is not displayed while it is being entered.
+
+## 7. Decision making: if statements
+
+An `if` statement evaluates a condition and executes a block of commands when the condition is true.
+
+### Numeric operators
+
+- `-eq`: equal to.
+- `-ne`: not equal to.
+- `-lt`: less than.
+- `-le`: less than or equal to.
+- `-gt`: greater than.
+- `-ge`: greater than or equal to.
+
+### File operators
+
+- `-b`: true if the path exists and is a block special file.
+- `-c`: true if the path exists and is a character special file.
+- `-d`: true if the path exists and is a directory.
+- `-e`: true if the path exists.
+- `-f`: true if the path exists and is a regular file.
+- `-l`: true if the path exists and is a symbolic link.
+- `-r`: true if the file or directory is readable.
+- `-s`: true if the file is not empty.
+- `-w`: true if the file or directory is writable.
+- `-x`: true if the file or directory is executable.
+
+### Example: testing a numeric value
+
+```bash
+#!/bin/bash
+
+read -p "Enter a number: " NUM
+echo
+
+if [ "$NUM" -gt 100 ]
+then
+        echo "The number is greater than 100."
+        sleep 3
+        echo "The number: $NUM"
+        echo
+        date
+else
+        echo "The number is 100 or less."
+fi
+
+echo "Script execution completed."
+```
+
+This example uses `-gt` to compare a numeric value with 100. The script runs the commands in the `else` block when the condition is false.
+
+### Example: checking multiple conditions
+
+```bash
+#!/bin/bash
+
+VALUE=$(ip addr show | grep -v LOOPBACK | grep -ic mtu)
+
+if [ "$VALUE" -eq 1 ]
+then
+        echo "One active network interface was found."
+elif [ "$VALUE" -gt 1 ]
+then
+        echo "Multiple active network interfaces were found."
+else
+        echo "No active network interfaces were found."
+fi
+```
